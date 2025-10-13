@@ -18,9 +18,9 @@
           # Per-project dev shells (exact versions pinned by flake.lock)
           devShells = {
             default = pkgs.mkShell {
-              packages = [
-                pkgs.python3
-                pkgs.nodejs
+              packages = with pkgs; [
+                nodejs
+                python3
               ];
             };
           };

@@ -6,6 +6,7 @@
 
   # Always-on tools (reproducible & pinned)
   home.packages = with pkgs; [
+    awscli2
     home-manager
     ripgrep
     fd
