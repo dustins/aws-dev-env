@@ -23,20 +23,6 @@
                 pkgs.nodejs
               ];
             };
-
-            lisa = pkgs.mkShell {
-              packages = [
-                pkgs.python314
-                pkgs.nodejs_24
-              ];
-            };
-
-            mlspace = pkgs.mkShell {
-              packages = [
-                pkgs.python312
-                pkgs.nodejs_22
-              ];
-            };
           };
         }
       ) // {
