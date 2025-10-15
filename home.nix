@@ -1,8 +1,11 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+let
+  stateVersion = "25.05";
+in {
   # Home Manager in standalone mode (works on non-NixOS)
   home.username = "dustinps";
   home.homeDirectory = "/home/dustinps";
-  home.stateVersion = "25.05";
+  home.stateVersion = stateVersion;
 
   # Always-on tools (reproducible & pinned)
   home.packages = with pkgs; [
@@ -20,9 +23,14 @@
 
   programs.zsh.enable = true;
   programs.fzf.enable = true;
+  programs.starship.enable = true;
   programs.lsd = {
     enable = true;
     enableZshIntegration = true;
+  };
+
+  home.shellAliases = {
+    hms = "nix run github:nix-community/home-manager/release-${stateVersion} -- switch --flake ~/.config/aws-dev-env#clouddev";
   };
 
   programs.zsh.initContent = ''
