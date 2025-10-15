@@ -38,7 +38,7 @@ nix run home-manager/master -- init --switch
 ### 3. Apply Home Manager Configuration
 
 ```bash
-home-manager switch --flake .#dustinps
+home-manager switch --flake .#clouddev
 ```
 
 This will set up direnv, development tools, and other configurations specified in the flake.
@@ -54,17 +54,17 @@ nix flake update
 
 ### Apply the updated configuration
 ```bash
-home-manager switch --flake ~/.config/aws-dev-env#dustinps
+home-manager switch --flake ~/.config/aws-dev-env#clouddev
 ```
 
 ### Or combine both steps
 ```bash
-cd ~/.config/aws-dev-env && nix flake update && home-manager switch --flake .#dustinps
+cd ~/.config/aws-dev-env && nix flake update && home-manager switch --flake .#clouddev
 ```
 
 Consider creating a shell alias for convenience:
 ```bash
-alias hms='home-manager switch --flake ~/.config/aws-dev-env#dustinps'
+alias hms='home-manager switch --flake ~/.config/aws-dev-env#clouddev'
 ```
 
 ## Using Development Shells
