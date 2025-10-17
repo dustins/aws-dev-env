@@ -1,7 +1,8 @@
 { pkgs, ... }:
 let
   stateVersion = "25.05";
-in {
+in
+{
   # Home Manager in standalone mode (works on non-NixOS)
   home.username = "dustinps";
   home.homeDirectory = "/home/dustinps";
@@ -31,6 +32,27 @@ in {
 
   home.shellAliases = {
     hms = "nix run github:nix-community/home-manager/release-${stateVersion} -- switch --flake ~/.config/aws-dev-env#clouddev";
+  };
+
+  programs.awscli = {
+    enable = true;
+
+    settings = {
+      "default" = {
+        region = "us-east-1";
+        output = "json";
+      };
+    };
+
+    credentials = {
+      "lisa" = {
+        "credential_process" = "ada credentials print --role Admin --account 009160029984 --format json";
+      };
+
+      "mlspace" = {
+        "credential_process" = "ada credentials print --role Admin --account 427935540279 --format json";
+      };
+    };
   };
 
   programs.zsh.initContent = ''
