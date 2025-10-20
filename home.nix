@@ -29,6 +29,12 @@ in
     enable = true;
     enableZshIntegration = true;
   };
+  programs.micro = {
+    enable = true;
+    settings = {
+      autosu = true;
+    };
+  };
 
   home.shellAliases = {
     hms = "nix run github:nix-community/home-manager/release-${stateVersion} -- switch --flake ~/.config/aws-dev-env#clouddev";
