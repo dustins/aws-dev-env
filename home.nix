@@ -88,7 +88,7 @@ in
     # Customize global Git configuration
     extraConfig = {
       core = {
-        editor = "nvim";
+        editor = "micro";
         autocrlf = "input";
       };
       pull.rebase = true;
